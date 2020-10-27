@@ -1,4 +1,4 @@
-Alexa Skill 
+## Alexa Skill Introduction
 
 Frontend + Backend
 
@@ -6,7 +6,7 @@ _Frontend/ VUI - Voice User Inteface (Alexa Interaction Model)_
 _Backend/ Programming Logic (Alexa Lambda Function)_
 
 
-###### What is Alexa Skill Set?
+#### What is Alexa Skill Set?
 
 These are the capabilities that aer given by the user to Alexa to perform accordingly or perform some tasks
 
@@ -60,12 +60,13 @@ Launching a skill
 
  Before starting creating Alexa Skill we have to focus on 2 major stuff
  
+ ```
  VOICE INTERACTION NODEL    +     PROGRAMMING LOGIC
     Amazon developer             AWS Lambda/Cloudwatch
   (developer.amazon.com)           (AWS.amazon.com)
+```
 
-
-###### STUCTURE OF ALEXA SKILL
+#### STUCTURE OF ALEXA SKILL
 
   /models(Interaction model)
     /en-US.json
