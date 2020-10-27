@@ -1,0 +1,307 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "yummy pizza",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "Hi All",
+            "Hello World",
+            "Hey whats up",
+            "Hola",
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "orderPizzaIntent",
+          "slots": [
+            {
+              "name": "toppings",
+              "type": "AMAZON.Food",
+              "samples": [
+                "I will go with {toppings}",
+                "I could go for {toppings}",
+                "{toppings}"
+              ]
+            },
+            {
+              "name": "size",
+              "type": "PIZZASize",
+              "samples": [
+                "I am fine with {size}",
+                "Would like to have {size}",
+                "Will go with {size}",
+                "{size}"
+              ]
+            },
+            {
+              "name": "CrustType",
+              "type": "CrustType",
+              "samples": [
+                "I would like to have {CrustType}",
+                "Will go with {CrustType}",
+                "{CrustType}"
+              ]
+            }
+          ],
+          "samples": [
+            "for {size} pizza with {CrustType} crust and {toppings} topping",
+            "Would like to order {toppings} pizza with {CrustType} crust",
+            "I would like to have {CrustType} pizza",
+            "place an order for {toppings} pizza",
+            "I m hungry please order pizza",
+            "order a pizza",
+            "order {size} pizza"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Extra Large",
+                "synonyms": [
+                  "Double"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Small",
+                "synonyms": [
+                  "Tiny"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Large",
+                "synonyms": [
+                  "Big"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Medium",
+                "synonyms": [
+                  "Mid",
+                  "Mid Size"
+                ]
+              }
+            }
+          ],
+          "name": "PIZZASize"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "stuffed"
+              }
+            },
+            {
+              "name": {
+                "value": "thick",
+                "synonyms": [
+                  "regular"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "thin"
+              }
+            }
+          ],
+          "name": "CrustType"
+        }
+      ],
+      "modelConfiguration": {
+        "fallbackIntentSensitivity": {
+          "level": "LOW"
+        }
+      }
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "orderPizzaIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "toppings",
+              "type": "AMAZON.Food",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1080393055090.908973406163"
+              },
+              "validations": [
+                {
+                  "type": "isInSet",
+                  "prompt": "Slot.Validation.1080393055090.908973406163.1265035464854",
+                  "values": [
+                    "olive",
+                    "sausage",
+                    "pepperoni",
+                    "mushroom",
+                    "cheese"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "size",
+              "type": "PIZZASize",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1080393055090.820617385492"
+              },
+              "validations": [
+                {
+                  "type": "isInSet",
+                  "prompt": "Slot.Validation.1080393055090.820617385492.311160139602",
+                  "values": [
+                    "small",
+                    "large",
+                    "medium"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "CrustType",
+              "type": "CrustType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1080393055090.1423201186864"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1080393055090.1423201186864.356686139440"
+                }
+              ]
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1080393055090.908973406163",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "May I know the toppings?"
+          },
+          {
+            "type": "PlainText",
+            "value": "What toppings would you like?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1080393055090.908973406163.1265035464854",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "We serve pepperoni, sausage, cheese, mushroom, olive"
+          },
+          {
+            "type": "PlainText",
+            "value": "You can choose pepperoni, sausage, cheese, olive, mushroom"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1080393055090.820617385492",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What pizza size would you prefer?"
+          },
+          {
+            "type": "PlainText",
+            "value": "What size would you like to order?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1080393055090.820617385492.311160139602",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please choose from large, medium, small"
+          },
+          {
+            "type": "PlainText",
+            "value": "We serve large, small, medium size pizzas"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1080393055090.1423201186864",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "May I know the crust type"
+          },
+          {
+            "type": "PlainText",
+            "value": "What type of crust would you like to have?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1080393055090.1423201186864.356686139440",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please choose from thin, thick, stuffed"
+          },
+          {
+            "type": "PlainText",
+            "value": "We offer thin, thick, stuffed crust. Which one would you like?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "8"
+}
