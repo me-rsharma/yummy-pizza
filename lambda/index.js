@@ -10,7 +10,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Welcome to the yummy pizza. How can I help you?';
+        const speakOutput = 'Welcome to the yummy pizza. How can I help you today?';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -31,8 +31,7 @@ const OrderPizzaIntentHandler = {
         var topping = handlerInput.requestEnvelope.request.intent.slots.toppings.value;
         var size = handlerInput.requestEnvelope.request.intent.slots.size.value;
         
-        const speakOutput = 'All done. Your order of ' + size + ' pizza with '+ crust + ' crust & '+ topping + 
-        ' topping is on your way ! Enjoy !!';
+        const speakOutput = 'All done. Your order of ' + size + ' pizza with '+ crust + ' crust & '+ topping + ' topping is on your way ! Enjoy !!';
         // const speakOutput = 'All done. Your order of topping is on your way ! Enjoy !!';
 
         return handlerInput.responseBuilder
