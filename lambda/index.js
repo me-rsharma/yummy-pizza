@@ -25,7 +25,7 @@ const OrderPizzaIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'OrderPizzaIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'Hello World! Its wonderful out there !';
+        const speakOutput = 'Here we go with out amazing Pizza. Enjoy !!';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
