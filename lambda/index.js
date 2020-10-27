@@ -30,9 +30,9 @@ const OrderPizzaIntentHandler = {
         var topping = handlerInput.requestEnvelope.request.intent.slots.topping.value;
         var size = handlerInput.requestEnvelope.request.intent.slots.size.value;
         
-        // const speakOutput = 'All done. Your order of ' + size + ' pizza with '+ crust + ' crust & '+ topping + 
-        // ' topping is on your way ! Enjoy !!';
-        const speakOutput = 'All done. Your order of topping is on your way ! Enjoy !!';
+        const speakOutput = 'All done. Your order of ' + size + ' pizza with '+ crust + ' crust & '+ topping + 
+        ' topping is on your way ! Enjoy !!';
+        // const speakOutput = 'All done. Your order of topping is on your way ! Enjoy !!';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
