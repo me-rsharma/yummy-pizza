@@ -26,7 +26,7 @@ const OrderPizzaIntentHandler = {
     },
     
     handle(handlerInput) {
-        console.log(`orderPizzaIntent request: ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
+        console.log('orderPizzaIntent request: ${JSON.stringify(handlerInput.requestEnvelope.request)}');
         var crust = handlerInput.requestEnvelope.request.intent.slots.CrustType.value;
         var topping = handlerInput.requestEnvelope.request.intent.slots.toppings.value;
         var size = handlerInput.requestEnvelope.request.intent.slots.size.value;
