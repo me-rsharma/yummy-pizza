@@ -11,11 +11,14 @@ These are the capabilities that aer given by the user to Alexa to perform accord
 
 Alexa enabled device (VUI)  -------> Alexa Skill Kit
 
+```
 Alexa, open/play/tell/ask yummy pizza to order large(slot) cheese(slot) pizza
 Wake +     Launch +       Invocation + Utterances (Can have slot)
-
+```
 On asking Alexa to launch specific invocation, it will be further requesting specific  INTENT based on request
 Each INTENT can have multiple utterances and based on these utterances the Alexa gonna train the model and respond
+
+```
                     -----------------------
                     |                     |
                     | give me fact        |       
@@ -24,10 +27,12 @@ Each INTENT can have multiple utterances and based on these utterances the Alexa
                     -----------------------
                         GetNewFactIntent
                         ---- INTENT ----
+```
 
 We as a developer mostly focus on INTENT and alexa based on intent gonna route the request
 
 Launching a skill
+```
                                                                                                                                                     -Slot-
     Alexa,     ask       space facts      for a fact about    Mars
 -wake word-  -launch-  -invocation name-   ------ utterances -----
@@ -36,7 +41,9 @@ Launching a skill
 
                 GetFactByPlanetIntent
                 ------- INTENT -------
+```
 
+```
                                                                -Slot-
     Alexa,     ask       space facts      for a fact about    {planet}
                                                                 Mars
@@ -44,6 +51,8 @@ Launching a skill
                                                                 Saturn
                                                                 Pluto
  -wake word-  -launch-  -invocation name-   ------ utterances -----
+
+```
 
  We can have multiple intents in one Alexa Skill
  There are 2 types - Custom & Alexa Builtin Intents
@@ -63,7 +72,7 @@ Launching a skill
   skill.json
 
   TALKING TO ALEXA
-
+```
     |-------- Audio---------------|
     |                             |
     |                             |
@@ -73,3 +82,5 @@ Launching a skill
     |                          Text to Speech
     |                              |  AMAZON ALEXA
     |-------- Visual---------------|
+
+```
