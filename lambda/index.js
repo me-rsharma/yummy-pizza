@@ -22,7 +22,7 @@ const LaunchRequestHandler = {
 const OrderPizzaIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'OrderPizzaIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'orderPizzaIntent';
     },
     handle(handlerInput) {
         const speakOutput = 'Here we go with out amazing Pizza. Enjoy !!';
