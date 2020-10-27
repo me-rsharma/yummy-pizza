@@ -26,6 +26,7 @@ const OrderPizzaIntentHandler = {
     },
     
     handle(handlerInput) {
+        console.log(`orderPizzaIntent request: ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
         var crust = handlerInput.requestEnvelope.request.intent.slots.crust.value;
         var topping = handlerInput.requestEnvelope.request.intent.slots.topping.value;
         var size = handlerInput.requestEnvelope.request.intent.slots.size.value;
@@ -151,6 +152,7 @@ const ErrorHandler = {
     handle(handlerInput, error) {
         const speakOutput = 'Sorry, I had trouble doing what you asked. Please try again.';
         console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
+        
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
