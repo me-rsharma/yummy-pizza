@@ -24,7 +24,12 @@ const OrderPizzaIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'orderPizzaIntent';
     },
+    
     handle(handlerInput) {
+        var crust = handlerInput.requestEnvelope.request.intent.slots.crust.value;
+        var topping = handlerInput.requestEnvelope.request.intent.slots.topping.value;
+        var size = handlerInput.requestEnvelope.request.intent.slots.size.value;
+        
         const speakOutput = 'Here we go with out amazing Pizza. Enjoy !!';
 
         return handlerInput.responseBuilder
